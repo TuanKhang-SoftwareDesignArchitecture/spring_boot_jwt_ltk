@@ -13,13 +13,21 @@ import org.springframework.web.bind.annotation.RestController;
 import sv.iuh.spring_boot_jwt_ltk.authen.UserPrincipal;
 import sv.iuh.spring_boot_jwt_ltk.entity.Token;
 import sv.iuh.spring_boot_jwt_ltk.entity.User;
+import sv.iuh.spring_boot_jwt_ltk.service.TokenService;
 import sv.iuh.spring_boot_jwt_ltk.service.UserService;
+import sv.iuh.spring_boot_jwt_ltk.util.JwtUtil;
 
 @RestController
 public class AuthController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private JwtUtil jwtUtil;
+
+    @Autowired
+    private TokenService tokenService;
 
     @PostMapping("/register")
     public User register(@RequestBody User user){
