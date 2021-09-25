@@ -6,4 +6,5 @@ import java.nio.file.attribute.UserPrincipal;
 
 public interface UserService {
     User createUser(User user);
+    UserPrincipal findByUsername(String username);
 }
